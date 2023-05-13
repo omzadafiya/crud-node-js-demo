@@ -6,8 +6,9 @@ router.post('/register', async (req, resp) => {
     let data = await authController.register(req.body)
     resp.send(data)
 });
-router.get('/file/:fileName', async (req,resp) =>{
-    resp.sendFile(path.join(__dirname+'/../public/images/'+req?.params?.fileName));
+router.get('/file/:fileName', async (req, resp) => {
+    console.log(req.params.fileName, "name");
+    resp.sendFile(path.join(__dirname + '/../public/images/' + req?.params?.fileName));
 });
 
 router.post('/login', async (req, resp) => {
@@ -23,7 +24,7 @@ router.post('/login', async (req, resp) => {
     }
 });
 
-router.post('/logout',async (req,resp) => {
+router.post('/logout', async (req, resp) => {
     let data = await authController.logout(req.body)
 });
 
